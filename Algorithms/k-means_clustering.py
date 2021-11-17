@@ -1,13 +1,13 @@
 from math import sqrt
 
 
-class Point(object):
+class Point:
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
     def __repr__(self):
-        return 'Point({}, {})'.format(self.x, self.y)
+        return f'Point({self.x}, {self.y})'
 
     def __add__(self, other):
         return Point((self.x + other.x), (self.y + other.y))
@@ -31,7 +31,7 @@ class Point(object):
         return sqrt((self.x - other.x) ** 2 + (self.y - other.y) ** 2)
 
 
-class Cluster(object):
+class Cluster:
     def __init__(self, x, y):
         self.center = Point(x, y)
         self.points = []
@@ -69,6 +69,7 @@ def compute_result(points):
     return [(b.center.x, b.center.y), (a.center.x, a.center.y)]
 
 
-dataset = [(1, 1), (-1, -1), (2, 2), (-2, -2), (3, 3), (-3, -3), (0, -2), (-2, 0), (0, -3), (-3, 0), (5, 6), (-5, -6)]
+dataset = [(1, 1), (-1, -1), (2, 2), (-2, -2), (3, 3), (-3, -3),
+           (0, -2), (-2, 0), (0, -3), (-3, 0), (5, 6), (-5, -6)]
 
 print(compute_result(dataset))

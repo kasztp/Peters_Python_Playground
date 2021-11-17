@@ -9,18 +9,18 @@ def timer(func, parameters):
     print(f'Result: {result}, Time taken: {end - start}')
 
 
-def fib_recursive(n: int) -> int:
+def fib_recursive(number: int) -> int:
     # Naive recursive version
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
+    if number == 0:
+        result = 0
+    elif number == 1:
+        result = 1
     else:
-        result = fib_recursive(n-1) + fib_recursive(n-2)
+        result = fib_recursive(number - 1) + fib_recursive(number - 2)
     return result
 
 
-def fib_memoization(n: int) -> int:
+def fib_memoization(number: int) -> int:
     # Store already calculated values in a cache
     def fibonacci(num: int, cache: dict) -> int:
         if num in cache:
@@ -30,16 +30,9 @@ def fib_memoization(n: int) -> int:
             return cache[num]
 
     calculated = {0: 0, 1: 1}
-    return fibonacci(n, calculated)
-
-
-for i in range(20):
-    print(i, fib_recursive(i), fib_memoization(i))
+    return fibonacci(number, calculated)
 
 
 timer(fib_memoization, 30)
 timer(fib_recursive, 30)
 timer(fib_memoization, 100)
-
-
-

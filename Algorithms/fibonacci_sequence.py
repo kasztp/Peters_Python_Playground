@@ -1,8 +1,9 @@
+""" Library to compare different methods for calculating the Fibonacci sequence. """
 from time import time
 
 
 def timer(func, parameters):
-    # Wrapper for performance measurement
+    """ Wrapper for performance measurement """
     start = time()
     result = func(parameters)
     end = time()
@@ -10,7 +11,7 @@ def timer(func, parameters):
 
 
 def fib_recursive(number: int) -> int:
-    # Naive recursive version
+    """ Naive recursive version """
     if number == 0:
         result = 0
     elif number == 1:
@@ -21,8 +22,9 @@ def fib_recursive(number: int) -> int:
 
 
 def fib_memoization(number: int) -> int:
-    # Store already calculated values in a cache
-    def fibonacci(num: int, cache: dict) -> int:
+    """ Store already calculated values in a cache """
+
+    def fibonacci(num: int, cache: dict[int, int]) -> int:
         if num in cache:
             return cache[num]
         else:
@@ -33,6 +35,6 @@ def fib_memoization(number: int) -> int:
     return fibonacci(number, calculated)
 
 
-timer(fib_memoization, 30)
-timer(fib_recursive, 30)
-timer(fib_memoization, 100)
+timer(fib_memoization, 35)
+timer(fib_recursive, 35)
+timer(fib_memoization, 500)

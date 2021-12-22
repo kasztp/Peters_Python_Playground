@@ -1,3 +1,4 @@
+""" Library for 2D point representation and basic K-means clustering. """
 from math import sqrt
 
 

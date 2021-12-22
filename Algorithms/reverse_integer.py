@@ -12,6 +12,14 @@ def for_cycle_reverse(num: int) -> int:
     return int(''.join(result_list))
 
 
+def enumerate_reverse(num: int) -> int:
+    """ Reverse integer using enumerate multiplication approach. """
+    result = 0
+    for index, digit in enumerate([int(n) for n in str(num)]):
+        result += digit * 10 ** index
+    return result
+
+
 def dividing_reverse(num: int) -> int:
     """ Reverse integer using math. """
     result = 0
@@ -57,7 +65,11 @@ if __name__ == '__main__':
         f'Dividing reverse result:\t{dividing_reverse(NUMBER)}\t--\tTime: ':
             timeit.timeit(
                 setup='from __main__ import dividing_reverse',
-                stmt=f'dividing_reverse({NUMBER})')
+                stmt=f'dividing_reverse({NUMBER})'),
+        f'Enumerate reverse result:\t{enumerate_reverse(NUMBER)}\t--\tTime: ':
+            timeit.timeit(
+                setup='from __main__ import enumerate_reverse',
+                stmt=f'enumerate_reverse({NUMBER})')
     }
 
     for timing in sorted(race_result, key=race_result.get, reverse=True):

@@ -19,14 +19,12 @@ class Point:
     def __mul__(self, other):
         if isinstance(other, int):
             return Point((self.x * other), (self.y * other))
-        else:
-            return (self.x * other.x) + (self.y * other.y)
+        return (self.x * other.x) + (self.y * other.y)
 
     def __rmul__(self, other):
         if isinstance(other, int):
             return Point((self.x * other), (self.y * other))
-        else:
-            return (self.x * other.x) + (self.y * other.y)
+        return (self.x * other.x) + (self.y * other.y)
 
     def distance(self, other):
         return sqrt((self.x - other.x) ** 2 + (self.y - other.y) ** 2)

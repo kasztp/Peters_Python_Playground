@@ -1,7 +1,7 @@
 """ Library to compare different methods for reversing an integer. """
 import timeit
 
-number = 1234567893254875764542998765432012
+NUMBER = 1234567893254875764542998765432012
 
 
 def for_cycle_reverse(num: int) -> int:
@@ -37,21 +37,27 @@ def string_slicing_reverse(num: int) -> int:
 
 
 if __name__ == '__main__':
-    race_result = {f'For cycle reverse result:\t{for_cycle_reverse(number)}\t--\tTime: ': timeit.timeit(
-                        setup='from __main__ import for_cycle_reverse',
-                        stmt=f'for_cycle_reverse({number})'),
-                   f'List comprehension result:\t{list_comprehension_reverse(number)}\t--\tTime: ': timeit.timeit(
-                        setup='from __main__ import list_comprehension_reverse',
-                        stmt=f'list_comprehension_reverse({number})'),
-                   f'String reversed() result:\t{string_reversed_reverse(number)}\t--\tTime: ': timeit.timeit(
-                        setup='from __main__ import string_reversed_reverse',
-                        stmt=f'string_reversed_reverse({number})'),
-                   f'String slicing result:\t\t{string_slicing_reverse(number)}\t--\tTime: ': timeit.timeit(
-                        setup='from __main__ import string_slicing_reverse',
-                        stmt=f'string_slicing_reverse({number})'),
-                   f'Dividing reverse result:\t{dividing_reverse(number)}\t--\tTime: ': timeit.timeit(
-                        setup='from __main__ import dividing_reverse',
-                        stmt=f'dividing_reverse({number})')
+    race_result = {
+        f'For cycle reverse result:\t{for_cycle_reverse(NUMBER)}\t--\tTime: ':
+            timeit.timeit(
+                setup='from __main__ import for_cycle_reverse',
+                stmt=f'for_cycle_reverse({NUMBER})'),
+        f'List comprehension result:\t{list_comprehension_reverse(NUMBER)}\t--\tTime: ':
+            timeit.timeit(
+                setup='from __main__ import list_comprehension_reverse',
+                stmt=f'list_comprehension_reverse({NUMBER})'),
+        f'String reversed() result:\t{string_reversed_reverse(NUMBER)}\t--\tTime: ':
+            timeit.timeit(
+                setup='from __main__ import string_reversed_reverse',
+                stmt=f'string_reversed_reverse({NUMBER})'),
+        f'String slicing result:\t\t{string_slicing_reverse(NUMBER)}\t--\tTime: ':
+            timeit.timeit(
+                setup='from __main__ import string_slicing_reverse',
+                stmt=f'string_slicing_reverse({NUMBER})'),
+        f'Dividing reverse result:\t{dividing_reverse(NUMBER)}\t--\tTime: ':
+            timeit.timeit(
+                setup='from __main__ import dividing_reverse',
+                stmt=f'dividing_reverse({NUMBER})')
     }
 
     for timing in sorted(race_result, key=race_result.get, reverse=True):

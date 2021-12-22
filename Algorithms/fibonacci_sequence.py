@@ -25,6 +25,7 @@ def fib_memoization(number: int) -> int:
     """ Store already calculated values in a cache """
 
     def fibonacci(num: int, cache: dict[int, int]) -> int:
+        """ Memoization recursive version """
         if num in cache:
             return cache[num]
         cache[num] = fibonacci(num-1, cache) + fibonacci(num-2, cache)

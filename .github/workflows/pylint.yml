@@ -20,4 +20,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        python -m pylint --fail-under=10 `find -regextype egrep -regex '(.*.py)$'`
+        python -m pylint --fail-under=7 `find -regextype egrep -regex '(.*.py)$'`

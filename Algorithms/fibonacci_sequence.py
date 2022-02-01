@@ -1,5 +1,6 @@
 """ Library to compare different methods for calculating the Fibonacci sequence. """
 from time import time
+from functools import lru_cache
 
 
 def timer(func, parameters):
@@ -7,11 +8,23 @@ def timer(func, parameters):
     start = time()
     result = func(parameters)
     end = time()
-    print(f'Result: {result}, Time taken: {end - start}')
+    print(f'{func.__name__} Result: {result}, Time taken: {end - start}')
 
 
 def fib_recursive(number: int) -> int:
     """ Naive recursive version """
+    if number == 0:
+        result = 0
+    elif number == 1:
+        result = 1
+    else:
+        result = fib_recursive(number - 1) + fib_recursive(number - 2)
+    return result
+
+
+@lru_cache()
+def fib_lru_recursive(number: int) -> int:
+    """ Naive recursive version using lru_cache """
     if number == 0:
         result = 0
     elif number == 1:
@@ -37,4 +50,5 @@ def fib_memoization(number: int) -> int:
 
 timer(fib_memoization, 35)
 timer(fib_recursive, 35)
+timer(fib_lru_recursive, 35)
 timer(fib_memoization, 500)

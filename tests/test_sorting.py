@@ -18,34 +18,34 @@ test_result = sorted(dummy_data)
 
 def test_built_in_sort():
     """Test function for built_in_sort() function."""
-    assert built_in_sort(a:=deepcopy(dummy_data)) == test_result
+    assert built_in_sort(deepcopy(dummy_data)) == test_result
 
 
 def test_insertion_sort():
     """Test function for insertion_sort() function."""
-    assert insertion_sort(c:=deepcopy(dummy_data)) == test_result
+    assert insertion_sort(deepcopy(dummy_data)) == test_result
 
 
 def test_bubble_sort():
     """Test function for bubble_sort() function."""
-    assert bubble_sort(d:=deepcopy(dummy_data)) == test_result
+    assert bubble_sort(deepcopy(dummy_data)) == test_result
 
 
 def test_selection_sort():
     """Test function for selection_sort() function."""
-    assert selection_sort(e:=deepcopy(dummy_data)) == test_result
+    assert selection_sort(deepcopy(dummy_data)) == test_result
 
 
 def test_optimized_selection_sort():
     """Test function for optimized_selection_sort() function."""
-    assert optimized_selection_sort(f:=deepcopy(dummy_data)) == test_result
+    assert optimized_selection_sort(deepcopy(dummy_data)) == test_result
 
 
 def test_merge_sort():
     """Test function for merge_sort() function."""
-    assert merge_sort(g:=deepcopy(dummy_data)) == test_result
+    assert merge_sort(deepcopy(dummy_data)) == test_result
 
 
 def test_quick_sort():
     """Test function for quick_sort() function."""
-    assert quick_sort(h:=deepcopy(dummy_data)) == test_result
+    assert quick_sort(deepcopy(dummy_data)) == test_result

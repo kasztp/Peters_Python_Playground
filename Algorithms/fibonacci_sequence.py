@@ -48,7 +48,8 @@ def fib_memoization(number: int) -> int:
     return fibonacci(number, calculated)
 
 
-timer(fib_memoization, 35)
-timer(fib_recursive, 35)
-timer(fib_lru_recursive, 35)
-timer(fib_memoization, 500)
+if __name__ == '__main__':
+    timer(fib_memoization, 35)
+    timer(fib_recursive, 35)
+    timer(fib_lru_recursive, 35)
+    timer(fib_memoization, 500)

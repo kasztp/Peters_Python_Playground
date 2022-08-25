@@ -1,8 +1,6 @@
 """ Library to compare different methods for reversing an integer. """
 import timeit
 
-NUMBER = 1234567893254875764542998765432012
-
 
 def for_cycle_reverse(num: int) -> int:
     """ Reverse integer using naive iterative approach. """
@@ -45,6 +43,7 @@ def string_slicing_reverse(num: int) -> int:
 
 
 if __name__ == '__main__':
+    NUMBER = 1234567893254875764542998765432012
     race_result = {
         f'For cycle reverse result:\t{for_cycle_reverse(NUMBER)}\t--\tTime: ':
             timeit.timeit(

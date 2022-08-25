@@ -1,11 +1,9 @@
+""" A few sorting algorithms implemented in Python """
 import timeit
-from copy import deepcopy
 from random import randint
 
-TEST_DATA = {10**y:[randint(0,x) for x in range(10**y)] for y in range(3,5)}
 
-
-def insertion_sort(lst):
+def insertion_sort(lst: list) -> list:
     """ Insertion sort algorithm. """
     for i in range(1, len(lst)):
         value = lst[i]
@@ -17,7 +15,7 @@ def insertion_sort(lst):
     return lst
 
 
-def bubble_sort(lst):
+def bubble_sort(lst: list) -> list:
     """ Bubble sort algorithm. """
     for passnum in range(len(lst) - 1, 0, -1):
         for i in range(passnum):
@@ -26,7 +24,7 @@ def bubble_sort(lst):
     return lst
 
 
-def selection_sort(lst):
+def selection_sort(lst: list) -> list:
     """ Selection sort original algorithm. """
     for i in range(len(lst) - 1):
         min_index = i
@@ -37,7 +35,7 @@ def selection_sort(lst):
     return lst
 
 
-def optimized_selection_sort(lst):
+def optimized_selection_sort(lst: list) -> list:
     """ Optimized Selection sort algorithm. """
     for i, value in enumerate(lst):
         min_index = i
@@ -47,7 +45,8 @@ def optimized_selection_sort(lst):
     return lst
 
 
-def merge_sort(lst):
+def merge_sort(lst: list) -> list:
+    """ Merge sort algorithm. """
     def merge(left, right):
         result = []
         i, j = 0, 0
@@ -70,7 +69,8 @@ def merge_sort(lst):
     return merge(left, right)
 
 
-def quick_sort(lst):
+def quick_sort(lst: list) -> list:
+    """ Quick sort algorithm. """
     def partition(lst, start, end):
         pivot = lst[end]
         bottom = start - 1
@@ -91,59 +91,56 @@ def quick_sort(lst):
     return lst
 
 
-def built_in_sort(lst):
+def built_in_sort(lst: list) -> list:
+    """ Function using Python's built-in .sort() """
     lst.sort()
     return lst
 
 
-def sorted_sort(lst):
+def sorted_sort(lst: list) -> list:
+    """ Function using Python's built-in sorted() """
     return sorted(lst)
 
 
-def test_sort(sort_func):
-    for data in TEST_DATA.values():
-        sort_func(data)
-        assert data == sorted(data)
-
-
-def race_sorts(scale, test_data):
+def race_sorts(scale: int, test_data: list) -> None:
+    """ Function for performance evaluation of a few sorting algorithms, and print the results. """
     race_result = {
-        f'Insertion Sort:\t\t--\tTime: ':
+        'Insertion Sort:\t\t--\tTime: ':
             timeit.timeit(
                 setup='from __main__ import insertion_sort',
                 stmt=f'insertion_sort({test_data})',
                 number=1),
-        f'Bubble Sort:\t\t--\tTime: ':
+        'Bubble Sort:\t\t--\tTime: ':
             timeit.timeit(
                 setup='from __main__ import bubble_sort',
                 stmt=f'bubble_sort({test_data})',
                 number=3),
-        f'Selection Sort:\t\t--\tTime: ':
+        'Selection Sort:\t\t--\tTime: ':
             timeit.timeit(
                 setup='from __main__ import selection_sort',
                 stmt=f'selection_sort({test_data})',
                 number=1),
-        f'Opt. Selection Sort:\t--\tTime: ':
+        'Opt. Selection Sort:\t--\tTime: ':
             timeit.timeit(
                 setup='from __main__ import optimized_selection_sort',
                 stmt=f'optimized_selection_sort({test_data})',
                 number=1),
-        f'Merge Sort:\t\t--\tTime: ':
+        'Merge Sort:\t\t--\tTime: ':
             timeit.timeit(
                 setup='from __main__ import merge_sort',
                 stmt=f'merge_sort({test_data})',
                 number=1),
-        f'Quick Sort:\t\t--\tTime: ':
+        'Quick Sort:\t\t--\tTime: ':
             timeit.timeit(
                 setup='from __main__ import quick_sort',
                 stmt=f'quick_sort({test_data})',
                 number=1),
-        f'Built-in Sort:\t\t--\tTime: ':
+        'Built-in Sort:\t\t--\tTime: ':
             timeit.timeit(
                 setup='from __main__ import built_in_sort',
                 stmt=f'built_in_sort({test_data})',
                 number=1),
-        f'Sorted Sort:\t\t--\tTime: ':
+        'Sorted Sort:\t\t--\tTime: ':
             timeit.timeit(
                 setup='from __main__ import sorted_sort',
                 stmt=f'sorted_sort({test_data})',
@@ -154,21 +151,7 @@ def race_sorts(scale, test_data):
         print(timing, round(race_result[timing], 4))
 
 
-def test_equality():
-    '''Test function to check if all sorting algorithms return the same result.'''
-    dummy_data = [2,6,7,1,9,0,3,8,5,4]
-    test_result = sorted(dummy_data)
-    assert built_in_sort(a:=deepcopy(dummy_data)) == test_result
-    assert sorted_sort(b:=deepcopy(dummy_data)) == test_result
-    assert insertion_sort(c:=deepcopy(dummy_data)) == test_result
-    assert bubble_sort(d:=deepcopy(dummy_data)) == test_result
-    assert selection_sort(e:=deepcopy(dummy_data)) == test_result
-    assert optimized_selection_sort(f:=deepcopy(dummy_data)) == test_result
-    assert merge_sort(g:=deepcopy(dummy_data)) == test_result
-    assert quick_sort(h:=deepcopy(dummy_data)) == test_result
-
-
 if __name__ == '__main__':
-    test_equality()
+    TEST_DATA = {10**y:[randint(0,x) for x in range(10**y)] for y in range(3,5)}
     for key, data in TEST_DATA.items():
         race_sorts(key, data)

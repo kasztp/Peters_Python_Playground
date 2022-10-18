@@ -26,4 +26,4 @@ def export_data(df, filename):
 
 print(models_df, '\n', alphabet_df2)
 
-export_data(alphabet_df2, 'test.csv')
+#export_data(alphabet_df2, 'test.csv')

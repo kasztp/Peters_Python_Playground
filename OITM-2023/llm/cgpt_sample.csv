@@ -1,0 +1,4 @@
+rank;line_num;MLP-FL;buggy 
+1;org.mockito.internal.invocation.InvocationMatcher#98;0.5497653268;False 
+2;org.mockito.internal.invocation.InvocationMatcher#145;0.6487953124;True 
+3;org.mockito.internal.invocation.ArgumentsProcessor#32;0.5164975863;False

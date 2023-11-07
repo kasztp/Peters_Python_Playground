@@ -7,8 +7,11 @@ def read_input(path: str) -> tuple:
 
 
 def calculate_resolution(width: int, height: int, x: int, y: int) -> str:
-    """Calculate the biggest possible x:y aspect ratio resolution on a screen with the given width and height in pixels.
+    """Calculate the biggest possible x:y aspect ratio resolution on a screen,
+    with the given width and height in pixels.
+
     Output can be only integer numbers in the format: "x_width y_height"
+    
     If there is no solution, return "0 0".
     """
     # Calculate the maximum possible scale factor for the given aspect ratio

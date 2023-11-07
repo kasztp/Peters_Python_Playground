@@ -18,12 +18,12 @@ def load_data(path: str) -> pd.DataFrame:
     return data
 
 
-def get_data_statistics(data: pd.DataFrame) -> dict:
+def get_data_statistics(data: pd.DataFrame) -> pd.DataFrame:
     """Calculate correlation between the columns of the given data.
-    Return a dictionary where the keys are the column names and the values are the correlation coefficients.
+    Return a Pandas DataFrame containing the correlation coefficients.
     
     :param data: PandasDataFrame - the data
-    :return: dict - the correlation coefficients
+    :return: PandasDataFrame - the correlation coefficients
     """
     return data.corr()
 
@@ -64,6 +64,6 @@ def get_most_correlated_columns_to(data: pd.DataFrame, column: str):
 
 
 if __name__ == "__main__":
-    data = load_data("OITM-2023/CyberSecurity/2fordulo/gyumolcsos.csv")
+    data = load_data("gyumolcsos.csv")
     print(get_most_correlated_columns(data))
     print(get_most_correlated_columns_to(data, 'Eper'))

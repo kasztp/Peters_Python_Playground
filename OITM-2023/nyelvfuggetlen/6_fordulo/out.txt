@@ -1,0 +1,7 @@
+Output for utak1.in.txt: 1212727459
+Output for utak2.in.txt: 5164688909
+Output for utak3.in.txt: 16148772057
+Output for utak4.in.txt: 6545110633
+Output for utak5.in.txt: 66525280998
+Output for utak.pelda1.in.txt: 1241187784
+Output for utak.pelda2.in.txt: 6448058054

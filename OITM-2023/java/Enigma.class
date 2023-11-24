@@ -1,0 +1,27 @@
+/**
+ * Kérlek kövesd a forduló instrukcióit.
+ */
+class Enigma {
+
+  private static final long serialVersionUID = 1L;
+
+  int a;
+  double b;
+  long d;
+  float e;
+  double f;
+  byte g;
+  boolean h;
+  String i;
+
+  public String decode() {
+    return (a * b + "-") +
+      (d % a + "-") +
+      ((e * a) % 1 + "-") +
+      (Math.sqrt(f) + "-") +
+      ((g > 50 ? g : g + a) + "-") +
+      ((h ? 1 : 0) * a + "-") +
+      (i.substring(0, Math.min(i.length(), a % 5)) + "-");
+  }
+}
+

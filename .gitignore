@@ -3,3 +3,5 @@ __pycache__/
 .vscode
 venv/
 .DS_Store
+/OITM-2023/python/7_fordulo/test_images
+OITM-2023/python/7_fordulo/export.pkl
